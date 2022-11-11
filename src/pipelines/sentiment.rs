@@ -142,9 +142,9 @@ impl SentimentModel {
         let labels = self.sequence_classification_model.predict(input);
         let mut sentiments = Vec::with_capacity(labels.len());
         for label in labels {
-            let polarity = if label.id == 5 || label.id == 4 {
+            let polarity = if label.id == 4 || label.id == 3 {
                 SentimentPolarity::Positive
-            } else if label.id == 3 {
+            } else if label.id == 2 {
                 SentimentPolarity::Neutral
             } else {
                 SentimentPolarity::Negative
